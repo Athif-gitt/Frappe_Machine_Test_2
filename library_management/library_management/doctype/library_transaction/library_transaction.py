@@ -6,6 +6,8 @@ from frappe.model.document import Document
 
 
 class LibraryTransaction(Document):
+    
+	# this runs all the metods inside the class and the methods are define down
 
     def validate(self):
 
@@ -13,6 +15,8 @@ class LibraryTransaction(Document):
             self.validate_article_status()
             self.validate_membership()
             self.validate_borrow_limit()
+            
+	# onsubmit works only when submit buton pressed in the app
 
     def on_submit(self):
         self.update_article_status()
@@ -78,6 +82,8 @@ class LibraryTransaction(Document):
 
         if currently_issued >= max_allowed:
             frappe.throw("Maximum issued articles limit reached")
+            
+	# Final step article status updation.
 
     def update_article_status(self):
 
