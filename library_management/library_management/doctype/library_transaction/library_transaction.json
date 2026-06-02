@@ -8,7 +8,8 @@
   "article",
   "library_member",
   "type",
-  "date"
+  "date",
+  "amended_from"
  ],
  "fields": [
   {
@@ -33,12 +34,23 @@
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Transaction",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2026-06-02 13:52:34.794389",
+ "modified": "2026-06-02 14:58:42.182531",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",
