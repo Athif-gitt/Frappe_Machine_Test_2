@@ -1,42 +1,80 @@
-### Library Management
+# Library Management App
 
-Manage the Library
+A Library Management System built using Frappe Framework.
 
-### Installation
+## Features
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+- Manage Library Articles
+- Manage Members
+- Membership Validation
+- Issue/Return Transactions
+- Borrow Limit Validation
+- Automatic Article Status Updates
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js
+- Redis
+- MariaDB
+- Frappe Bench
+
+---
+
+## Installation
+
+### Clone Repository
 
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app library_management
+git clone <your-github-repo>
 ```
 
-### Contributing
-
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+### Go to bench folder
 
 ```bash
-cd apps/library_management
-pre-commit install
+cd frappe-bench
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+### Get App
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+```bash
+bench get-app <repo-url>
+```
 
-### CI
+### Install App
 
-This app can use GitHub Actions for CI. The following workflows are configured:
+```bash
+bench --site library.local install-app library_management
+```
 
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+### Run Migrations
 
+```bash
+bench --site library.local migrate
+```
 
-### License
+### Start Server
 
-mit
-# Frappe_Machine_Test_2
+```bash
+bench start
+```
+
+---
+
+## Business Logic
+
+Implemented in:
+
+```text
+library_management/library_management/doctype/library_transaction/library_transaction.py
+```
+
+Includes:
+
+- Membership validation
+- Borrow limit validation
+- Automatic article availability updates
